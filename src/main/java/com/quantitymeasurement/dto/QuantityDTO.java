@@ -1,74 +1,60 @@
 package com.quantitymeasurement.dto;
 
-import com.quantitymeasurement.enums.SubTypes;
 import com.quantitymeasurement.enums.Unit;
 import com.quantitymeasurement.enums.UnitType;
 
 public class QuantityDTO {
-    SubTypes initialUnit;
 
-    public SubTypes getOutputUnitG() {
-        return outputUnitG;
-    }
+    private Unit inputUnit;
+    private Unit outputUnit;
+    private double inputValue;
+//    private double outputValue;
+    private UnitType unitType;
 
-    public void setOutputUnitG(SubTypes outputUnitG) {
-        this.outputUnitG = outputUnitG;
-    }
-
-    SubTypes outputUnitG;
-    Unit inputUnit;
-    Unit outputUnit;
-    double inputValue;
-    double outputValue;
-    UnitType unitType;
-
-    public SubTypes getInitialUnit() {
-        return initialUnit;
-    }
-
-    public void setInitialValue(SubTypes initialUnit) {
-        this.initialUnit = initialUnit;
-    }
-
-    SubTypes initialValue;
-
-    public Unit getInputUnit() {
-        return inputUnit;
+    public QuantityDTO(Unit inputUnit, Unit outputUnit, double inputValue, UnitType unitType) {
+        this.inputUnit = inputUnit;
+        this.outputUnit = outputUnit;
+        this.inputValue = inputValue;
+        this.unitType = unitType;
     }
 
     public void setInputUnit(Unit inputUnit) {
         this.inputUnit = inputUnit;
     }
 
-    public Unit getOutputUnit() {
-        return outputUnit;
-    }
-
     public void setOutputUnit(Unit outputUnit) {
         this.outputUnit = outputUnit;
+    }
+
+    public void setInputValue(double inputValue) {
+        this.inputValue = inputValue;
+    }
+//
+//    public void setOutputValue(double outputValue) {
+//        this.outputValue = outputValue;
+//    }
+
+    public void setUnitType(UnitType unitType) {
+        this.unitType = unitType;
+    }
+
+    public Unit getInputUnit() {
+        return inputUnit;
+    }
+
+    public Unit getOutputUnit() {
+        return outputUnit;
     }
 
     public double getInputValue() {
         return inputValue;
     }
 
-    public void setInputValue(double inputValue) {
-        this.inputValue = inputValue;
-    }
-
-    public double getOutputValue() {
-        return outputValue;
-    }
-
-    public void setOutputValue(double outputValue) {
-        this.outputValue = outputValue;
-    }
+//    public double getOutputValue() {
+//        return outputValue;
+//    }
 
     public UnitType getUnitType() {
         return unitType;
-    }
-
-    public void setUnitType(UnitType unitType) {
-        this.unitType = unitType;
     }
 }

@@ -5,12 +5,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "quantity")
+@Table(name="quantityconv")
 public class Quantity {
-
     @Id
-    String conversionId;
-    double conversionValue;
+    private String conversionId;
+    private double conversionValue;
 
     public String getConversionId() {
         return conversionId;

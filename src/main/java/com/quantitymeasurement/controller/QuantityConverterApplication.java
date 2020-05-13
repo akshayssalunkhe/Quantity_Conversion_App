@@ -7,18 +7,19 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/unitConversion")
-public class QuantityApplicationController {
+public class QuantityConverterApplication {
 
     @Autowired
-    IQuantityConversionService conversionService;
+    private IQuantityConversionService conversionService;
 
     @GetMapping("/quantityConversion")
-    public QuantityDTO getConvertedQuantity(@RequestBody QuantityDTO quantityDto) {
+    public double getConvertedQuantity(@RequestBody QuantityDTO quantityDto) {
         return conversionService.getConversion(quantityDto);
     }
 
-    @PostMapping("/unit/convert")
-    public QuantityDTO convertUnitValue(@RequestBody QuantityDTO quantityDTO) {
-        return conversionService.convertUnit(quantityDTO);
+    @PostMapping("/addConversion")
+    public double getConvertedQuantityByPost(@RequestBody QuantityDTO measurementDto) {
+        return conversionService.getConversion(measurementDto);
     }
+
 }
