@@ -8,7 +8,6 @@ public class QuantityDTO {
     private Unit inputUnit;
     private Unit outputUnit;
     private double inputValue;
-//    private double outputValue;
     private UnitType unitType;
 
     public QuantityDTO(Unit inputUnit, Unit outputUnit, double inputValue, UnitType unitType) {
@@ -29,10 +28,6 @@ public class QuantityDTO {
     public void setInputValue(double inputValue) {
         this.inputValue = inputValue;
     }
-//
-//    public void setOutputValue(double outputValue) {
-//        this.outputValue = outputValue;
-//    }
 
     public void setUnitType(UnitType unitType) {
         this.unitType = unitType;
@@ -49,10 +44,6 @@ public class QuantityDTO {
     public double getInputValue() {
         return inputValue;
     }
-
-//    public double getOutputValue() {
-//        return outputValue;
-//    }
 
     public UnitType getUnitType() {
         return unitType;

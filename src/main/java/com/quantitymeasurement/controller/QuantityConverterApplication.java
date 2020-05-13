@@ -18,8 +18,8 @@ public class QuantityConverterApplication {
     }
 
     @PostMapping("/addConversion")
-    public double getConvertedQuantityByPost(@RequestBody QuantityDTO measurementDto) {
-        return conversionService.getConversion(measurementDto);
+    public double addConvertedQuantity(@RequestBody QuantityDTO quantityDto) {
+        return conversionService.getConversion(quantityDto);
     }
-
 }
+

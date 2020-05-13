@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="quantityconv")
+@Table(name = "quantityconv")
 public class Quantity {
     @Id
     private String conversionId;
