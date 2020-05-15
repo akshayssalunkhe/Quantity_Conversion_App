@@ -21,9 +21,6 @@ public class QuantityConversionServiceImpl implements IQuantityConversionService
         final double FAHRENHEIT_TO_CELSIUS = (5 / 9);
         final double CELSIUS_TO_FAHRENHEIT = (9 / 5);
 
-        //GETTING BASE UNIT OF CURRENT UNIT TYPE
-        Unit baseUnit = quantityDto.getUnitType().baseUnit;
-
         //CHECKING INPUT AND REQUIRED OUTPUT UNIT ARE SAME OR NOT
         if (quantityDto.getInputUnit().equals(quantityDto.getOutputUnit()))
             outputValue = quantityDto.getInputValue();
@@ -38,11 +35,12 @@ public class QuantityConversionServiceImpl implements IQuantityConversionService
     }
 
     private double getOutputValue(QuantityDTO quantityDto) {
+        String connector = "_TO_";
         //CONVERTING INPUT UNIT TO ITS BASE VALUE
-        double inputToBaseUnit = quantityRepository.findById(quantityDto.getInputUnit() + "_TO_" + quantityDto.getUnitType().baseUnit).get().getConversionValue();
+        double inputToBaseUnit = quantityRepository.findById(quantityDto.getInputUnit() + connector + quantityDto.getUnitType().baseUnit).get().getConversionValue();
 
         //CONVERTING OUTPUT UNIT TO ITS BASE VALUE
-        double outputToBaseUnit = quantityRepository.findById(quantityDto.getOutputUnit() + "_TO_" + quantityDto.getUnitType().baseUnit).get().getConversionValue();
+        double outputToBaseUnit = quantityRepository.findById(quantityDto.getOutputUnit() + connector + quantityDto.getUnitType().baseUnit).get().getConversionValue();
 
         //CONVERTING INPUT VALUE TO OUTPUT VALUE
         return (inputToBaseUnit / outputToBaseUnit * quantityDto.getInputValue());
